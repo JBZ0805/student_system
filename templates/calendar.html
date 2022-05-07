@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>日历页面</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="css/matrix-style.css"/>
+    <link rel="stylesheet" href="css/matrix-media.css"/>
+    <style>
+        td{
+            width:50px;
+            text-align: center;
+        }
+          th{
+            width:50px;
+            text-align: center;
+        }
+        h3 h4 {
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="header">
+    <h2>学生管理系统</h2>
+</div>
+
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
+                                                      data-target="#profile-messages" class="dropdown-toggle"><i
+                class="icon icon-user"></i> <span class="text">欢迎Admin</span><b class="caret"></b></a>
+        </li>
+        <li class=""><a title="" href="/login"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a>
+        </li>
+    </ul>
+</div>
+
+<div id="sidebar">
+    <a href="#" class="visible-phone"><i class="icon icon-home"></i></a>
+    <ul>
+        <li class="active">
+            <a href="/index"><i class="icon icon-home"></i> <span>首页</span></a>
+        </li>
+        <li>
+            <a href="/charts"><i class="icon icon-signal"></i> <span>图表统计</span></a>
+        </li>
+        <li>
+            <a href="/select-course"><i class="icon icon-inbox"></i> <span>学生选课情况</span></a>
+        </li>
+        <li>
+            <a href="/student-datas"><i class="icon icon-th"></i> <span>学生个人信息</span></a>
+        </li>
+        <li>
+            <a href="/grade"><i class="icon icon-fullscreen"></i> <span>学生成绩录入及查询</span></a>
+        </li>
+        <li>
+            <a href="/reward"><i class="icon icon-th-list"></i> <span></span>奖惩情况</a>
+
+        </li>
+        <li>
+            <a href="/graduation"><i class="icon icon-pencil"></i> <span>已毕业学生去向统计</span></a>
+        </li>
+
+
+    </ul>
+</div>
+<div id="content" style="width: 100%" >
+    <div id="content-header">
+        <div id="breadcrumb"><a href="/index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+            <a href="/calender" class="current">日历</a></div>
+    </div>
+    <div class="container"style="width: 100%">
+        <h3 class="text-center">日历 {{ date.year }}
+        </h3>
+        {% set week_addr = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'] %}
+        {% for month_addr,monthInfo in content.items() %}
+            <div class="col-lg-3">
+                <h4 class="text-center">{{ month_addr }}</h4>
+                {% with _month=false %}
+                    {% if month_addr == this_month %}
+                        <table style='background-color:#a6e1ec;width:800px;margin-left: 200px' class="table table-bordered">
+                        {% set _month = true %}
+                    {% else %}
+                        <table class="table table-bordered" style="width: 800px;margin-left: 200px">
+                    {% endif %}
+                    <tr>
+                        {% for addr in week_addr %}
+                            <th>{{ addr }}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for weeks in monthInfo %}
+                        <tr>
+                            {% for day in weeks %}
+                                {% if day == 0 %}
+                                    <td>&nbsp</td>
+                                {% elif _month== true and day == date.day %}
+                                    <td style="background-color:hotpink;">{{ day }}</td>
+                                {% else %}
+                                    <td>{{ day }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+
+                    {% endfor %}
+                {% endwith %}
+                </table>
+                </table>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+</body>
+</html>

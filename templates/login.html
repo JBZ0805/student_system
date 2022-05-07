@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理系统登录界面</title>
+</head>
+<style>
+    body {
+        width: 1280px;
+        height: 100%;
+        margin: auto;
+        background-image: url("{{ url_for('static',filename='image/bag.png') }}");
+        background-repeat: no-repeat;
+    }
+
+    #loginheader {
+        padding-top: 5px;
+
+    }
+
+    #login {
+        width: 400px;
+        height: 400px;
+        background: rgba(251,255,253,0.39);
+        margin-left: 440px;
+        margin-top: 100px;
+        border-radius: 10px;
+        border-style: solid;
+        border-width: thin;
+        border-color: black;
+    }
+
+    #login input {
+        margin-top: 40px;
+        width: 70%;
+        height: 30px;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 30px;
+        font-weight: bolder;
+    }
+
+    label {
+        margin-left: 10px;
+
+    }
+
+</style>
+<body>
+<div id="login">
+    <div id="loginheader">
+        <p>学生管理系统登录</p>
+    </div>
+    <form action="" method="post">
+        <div>
+        <label>用户名：
+            <input type="text" name="username" placeholder="请输入用户名："/>
+        </label>
+            </div>
+        <div>
+        <label>密&#12288;码：
+            <input type="password" name="password" placeholder="请输入密码："/>
+        </label>
+        </div>
+        <input type="submit" value="登录" style="width: 75%;margin-left: 50px"/>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>添加学生信息</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-responsive.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/matrix-style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/matrix-media.css') }}"/>
+    <script type="text/javascript">
+        function save() {
+            alert('数据添加成功！')
+
+        }
+    </script>
+
+
+
+</head>
+<body>
+<div id="header">
+    <h2>学生管理系统</h2>
+</div>
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
+                                                      data-target="#profile-messages" class="dropdown-toggle"><i
+                class="icon icon-user"></i> <span class="text">欢迎admin</span><b class="caret"></b></a>
+        </li>
+        <li class=""><a title="" href="/login"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+    </ul>
+</div>
+<div id="sidebar">
+    <a href="#" class="visible-phone"><i class="icon icon-home"></i></a>
+    <ul>
+        <li>
+            <a href="/index"><i class="icon icon-home"></i> <span>首页</span></a>
+        </li>
+        <li>
+            <a href="/charts"><i class="icon icon-signal"></i> <span>图表统计</span></a>
+        </li>
+        <li class="active">
+            <a href="/select-course"><i class="icon icon-inbox"></i> <span>学生选课情况</span></a>
+        </li>
+        <li>
+            <a href="/student-datas"><i class="icon icon-th"></i> <span>学生个人信息</span></a>
+        </li>
+        <li>
+            <a href="/grade"><i class="icon icon-fullscreen"></i> <span>学生成绩录入及查询</span></a>
+        </li>
+        <li>
+            <a href="/reward"><i class="icon icon-th-list"></i> <span></span>奖惩情况</a>
+
+        </li>
+        <li>
+            <a href="/graduation"><i class="icon icon-pencil"></i> <span>已毕业学生去向统计</span></a>
+        </li>
+
+
+    </ul>
+</div>
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"><a href="/index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+            <a href="/add-student-data" class="current">添加学生信息</a></div>
+    </div>
+    <div id="add-data" style="width: 100%">
+         <form action="" method="post">
+                <table style="width:685px;margin-left:30px;background:cornflowerblue;">
+                    <caption>添加学生信息（学号不可重复）</caption>
+                    <tr>
+                        <td style="width: 110px;text-align: center">姓名</td>
+                        <td style="width: 110px;text-align: center">姓名</td>
+                        <td style="width: 110px;text-align: center">性别</td>
+                        <td style="width: 110px;text-align: center">年龄</td>
+                        <td style="width: 110px;text-align: center">生源地</td>
+                        <td style="width: 110px;text-align: center">二级学院</td>
+                        <td style="width: 110px;text-align: center">班级号</td>
+                        <td style="width: 110px;text-align: center">操作</td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 110px;height: 30px;"><input name="snum1" placeholder="请输入学号" type="text"
+                                                                      style="width: 110px;height: 30px"/></td>
+                        <td style="width: 110px;height: 30px;"><input name="name" placeholder="请输入姓名" type="text"
+                                                                      style="width: 110px;height: 30px"/></td>
+                        <td style="width: 110px;height: 30px;"><input name="gender" placeholder="请输入性别" type="text"
+                                                                      style="width: 110px;height: 30px"/></td>
+                        <td style="width: 110px;height: 30px;"><input name="age" placeholder="请输入年龄" type="text"
+                                                                      style="width: 110px;height: 30px"/></td>
+                        <td style="width: 110px;height: 30px;"><input name="native-place" placeholder="请输入生源地"
+                                                                      type="text" style="width: 110px;height: 30px"/>
+                        </td>
+                        <td style="width: 110px;height: 30px;"><input name="department" placeholder="请输入二级学院"
+                                                                      type="text" style="width: 110px;height: 30px"/>
+                        </td>
+                        <td style="width: 110px;height: 30px;"><input name="class-id" placeholder="请输入班级号" type="text"
+                                                                      style="width: 110px;height: 30px"/></td>
+                        <td style="width: 110px;height: 30px;"><input type="submit" onclick="add()" style="width: 110px;height: 40px"
+                                                                  value="提交"/></td>
+
+                    </tr>
+
+                </table>
+            </form>
+    </div>
+
+
+</div>
+</body>
+</html>

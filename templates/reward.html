@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>奖惩情况页面</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="css/matrix-style.css"/>
+    <link rel="stylesheet" href="css/matrix-media.css"/>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/walden.js"></script>
+    <script type="text/javascript">
+        function delete_reward() {
+            alert('数据删除成功！')
+        }
+    </script>
+
+
+</head>
+<body>
+
+<!--Header-part-->
+<div id="header">
+    <h2>学生管理系统</h2>
+</div>
+
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
+                                                      data-target="#profile-messages" class="dropdown-toggle"><i
+                class="icon icon-user"></i> <span class="text">欢迎admin</span><b class="caret"></b></a>
+        </li>
+        <li class=""><a title="" href="/login"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+    </ul>
+</div>
+
+<div id="sidebar">
+    <a href="#" class="visible-phone"><i class="icon icon-home"></i>图表统计</a>
+    <ul>
+        <li>
+            <a href="/index.html"><i class="icon icon-home"></i> <span>首页</span></a>
+        </li>
+        <li>
+            <a href="/charts"><i class="icon icon-signal"></i> <span>图表统计</span></a>
+        </li>
+        <li>
+            <a href="/select-course"><i class="icon icon-inbox"></i> <span>学生选课情况</span></a>
+        </li>
+        <li>
+            <a href="/student-datas"><i class="icon icon-th"></i> <span>学生个人信息</span></a>
+        </li>
+        <li>
+            <a href="/grade"><i class="icon icon-fullscreen"></i> <span>学生成绩录入及查询</span></a>
+        </li>
+        <li class="active">
+            <a href="/reward"><i class="icon icon-th-list"></i> <span></span>奖惩情况</a>
+
+        </li>
+        <li>
+            <a href="/graduation"><i class="icon icon-pencil"></i> <span>已毕业学生去向统计</span></a>
+        </li>
+
+    </ul>
+</div>
+
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"><a href="/index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a
+                href="/reward" class="current">奖惩情况</a></div>
+    </div>
+    <div id="main5" style="width:100%;height: 300px"></div>
+    <div id="main6" style="width:100%;height: 200px;"></div>
+
+
+    <script type="text/javascript">
+        var mychart1 = echarts.init(document.getElementById('main5'), 'walden');
+        var mychart2 = echarts.init(document.getElementById('main6'), 'walden');
+
+        mychart1.setOption({{ bar_options|safe }});
+        mychart2.setOption({{ bar_options1|safe }});
+
+    </script>
+     <table style="width: 80%;margin-left: 88px;background:lightseagreen;">
+                    <caption>奖惩信息&#12288;共{{ reward_list|length }}条记录</caption>
+                    <tr>
+                        <td style="width: 87px;text-align: center">学号</td>
+                        <td style="width: 87px;text-align: center">姓名</td>
+                        <td style="width: 87px;text-align: center">二级学院</td>
+                        <td style="width: 87px;text-align: center">奖惩情况</td>
+
+                        <td style="width: 87px;text-align: center">删除操作</td>
+
+                    </tr>
+                    {% for item in reward_list %}
+                        <tr>
+                            {% for items in item %}
+                                <td style="width: 87px;text-align: center">{{ items }}</td>
+                            {% endfor %}
+
+                            <td style="width: 87px;text-align: center"><a href="/delete-reward/{{ item }}"
+                                                                          onclick="delete_reward()">删除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>学生选课情况</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-responsive.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/matrix-style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/matrix-media.css') }}"/>
+    <script type="text/javascript">
+        function save() {
+            alert('数据修改成功！')
+
+        }
+    </script>
+
+
+</head>
+<body>
+<div id="header">
+    <h2>学生管理系统</h2>
+</div>
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
+                                                      data-target="#profile-messages" class="dropdown-toggle"><i
+                class="icon icon-user"></i> <span class="text">欢迎admin</span><b class="caret"></b></a>
+        </li>
+        <li class=""><a title="" href="/login"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a></li>
+    </ul>
+</div>
+<div id="sidebar">
+    <a href="#" class="visible-phone"><i class="icon icon-home"></i></a>
+    <ul>
+        <li>
+            <a href="/index"><i class="icon icon-home"></i> <span>首页</span></a>
+        </li>
+        <li>
+            <a href="/charts"><i class="icon icon-signal"></i> <span>图表统计</span></a>
+        </li>
+        <li class="active">
+            <a href="/select-course"><i class="icon icon-inbox"></i> <span>学生选课情况</span></a>
+        </li>
+        <li>
+            <a href="/student-datas"><i class="icon icon-th"></i> <span>学生个人信息</span></a>
+        </li>
+        <li>
+            <a href="/grade"><i class="icon icon-fullscreen"></i> <span>学生成绩录入及查询</span></a>
+        </li>
+        <li>
+            <a href="/reward"><i class="icon icon-th-list"></i> <span></span>奖惩情况</a>
+
+        </li>
+
+        <li>
+            <a href="/graduation"><i class="icon icon-pencil"></i> <span>已毕业学生去向统计</span></a>
+        </li>
+
+
+    </ul>
+</div>
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb"><a href="/index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+            <a href="/update-select-course" class="current">修改学生选课</a></div>
+
+    </div>
+    <div id="data2" style="width: 100%">
+        <form action="" method="post">
+        <table style="width:685px;margin-left: 150px;background:lightskyblue;">
+            <caption>修改学生选课信息（注意：学号不可修改）</caption>
+            <tr>
+                <td style="width: 110px;text-align: center">学号</td>
+                <td style="width: 110px;text-align: center">选课一</td>
+                <td style="width: 110px;text-align: center">选课二</td>
+                <td style="width: 110px;text-align: center">选课三</td>
+                <td style="width: 110px;text-align: center">选课四</td>
+                <td style="width: 110px;text-align: center">操作</td>
+            </tr>
+            <tr>
+                <td style="width: 110px;height: 30px; text-align: center">{{ snum }}</td>
+                <td style="width: 110px;height: 30px;"><input name="course1" placeholder="请输入选课一的课程名称" type="text" style="width: 110px;height: 30px"/></td>
+                <td style="width: 110px;height: 30px;"><input name="course2" placeholder="请输入选课二的课程名称" type="text" style="width: 110px;height: 30px"/></td>
+                <td style="width: 110px;height: 30px;"><input name="course3" placeholder="请输入选课三的课程名称" type="text" style="width: 110px;height: 30px"/></td>
+                <td style="width: 110px;height: 30px;"><input name="course4" placeholder="请输入选课四的课程名称" type="text" style="width: 110px;height: 30px"/></td>
+                <td style="width: 110px;height: 30px;"><input type="submit" value="提交修改" onclick="save()" style="width: 110px;height: 40px"/></td>
+            </tr>
+
+        </table>
+            </form>
+    </div>
+    <div id="data3" style="width: 100%;margin-top: 30px">
+        <table style="width: 80%;margin-left: 88px;background:lightgoldenrodyellow;">
+                <caption>修改前的选课信息</caption>
+                    <tr>
+                        <td style="width: 87px;text-align: center">学号</td>
+                        <td style="width: 87px;text-align: center">选课一</td>
+                        <td style="width: 87px;text-align: center">选课二</td>
+                        <td style="width: 87px;text-align: center">选课三</td>
+                        <td style="width: 87px;text-align: center">选课四</td>
+                    </tr>
+                    {% for item in course_lst1 %}
+                        <tr>
+                            {% for items in item %}
+                                <td style="width: 87px;text-align: center">{{ items }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+    </div>
+
+
+</div>
+</body>
+</html>

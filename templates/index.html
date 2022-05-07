@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>学生管理系统</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+
+		<link rel="stylesheet" href="css/matrix-style.css" />
+		<link rel="stylesheet" href="css/matrix-media.css" />
+	</head>
+	<body>
+		<div id="header">
+			<h2>学生管理系统</h2>
+		</div>
+		<div id="user-nav" class="navbar navbar-inverse">
+			<ul class="nav">
+				<li class="dropdown" id="profile-messages">
+					<a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span class="text">欢迎admin</span><b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="/login"><i class="icon-key"></i> 退出</a>
+						</li>
+					</ul>
+				</li>
+				<li class="">
+					<a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">退出</span></a>
+				</li>
+			</ul>
+		</div>
+		<div id="sidebar">
+			<a href="#" class="visible-phone"><i class="icon icon-home"></i> 控制台</a>
+			<ul>
+				<li class="active">
+					<a href="/index"><i class="icon icon-home"></i> <span>首页</span></a>
+				</li>
+				<li>
+					<a href="/charts"><i class="icon icon-signal"></i> <span>图表统计</span></a>
+				</li>
+				<li>
+					<a href="/select-course"><i class="icon icon-inbox"></i> <span>学生选课情况</span></a>
+				</li>
+				<li>
+					<a href="/student-datas"><i class="icon icon-th"></i> <span>学生个人信息</span></a>
+				</li>
+				<li>
+					<a href="/grade"><i class="icon icon-fullscreen"></i> <span>学生成绩录入及查询</span></a>
+				</li>
+				<li>
+					<a href="/reward"><i class="icon icon-th-list"></i> <span></span>奖惩情况</a>
+	
+				</li>
+
+				<li>
+					<a href="/graduation"><i class="icon icon-pencil"></i> <span>已毕业学生去向统计</span></a>
+				</li>
+				
+
+				
+			
+			</ul>
+		</div>
+		<div id="content">
+			<!--breadcrumbs-->
+			<div id="content-header">
+				<div id="breadcrumb">
+					<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 首页</a>
+				</div>
+			</div>
+			<!--End-breadcrumbs-->
+
+			<!--Action boxes-->
+			<div class="container-fluid">
+				<div class="quick-actions_homepage">
+					<ul class="quick-actions">
+						<li class="bg_lb">
+							<a href="/index"> <i class="icon-dashboard"></i> <span class="label label-important">20</span>控制台</a>
+						</li>
+						<li class="bg_lg span3">
+							<a href="/charts"> <i class="icon-signal"></i> 图表统计</a>
+						</li>
+						<li class="bg_ly">
+							<a href="/select-course"> <i class="icon-inbox"></i><span class="label label-success">101</span> 学生选课情况 </a>
+						</li>
+						<li class="bg_lo">
+							<a href="/student-datas"> <i class="icon-th"></i> 学生个人信息</a>
+						</li>
+						<li class="bg_ls">
+							<a href="/grade"> <i class="icon-fullscreen"></i>学生成绩录入及查询</a>
+						</li>
+						<li class="bg_lo span3">
+							<a href="/reward"> <i class="icon-th-list"></i>奖惩情况</a>
+						</li>
+						<li class="bg_lb">
+							<a href="/graduation"> <i class="icon-pencil"></i>已毕业学生去向</a>
+						</li>
+						<li class="bg_lg">
+							<a href="/calendar"> <i class="icon-calendar"></i> 日历</a>
+						</li>
+						<li class="bg_lr">
+							<a href="/login"> <i class="icon-info-sign"></i>退出系统</a>
+						</li>
+
+					</ul>
+				</div>
+
+				<hr/>
+
+			</div>
+		</div>
+
+		
+	</body>
+
+</html>
